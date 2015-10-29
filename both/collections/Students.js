@@ -25,5 +25,8 @@ Meteor.students.allow({
 Students.methods({
   "fullName": function(){
     return this.firstName + " " + this.lastName;
+  },
+  "studentSlug": function(){
+    return this._id
   }
 })

@@ -21,5 +21,8 @@ Meteor.classes.allow({
 Classes.methods({
   "className": function(){
     return this.title;
+  },
+  "classSlug": function(){
+    return this._id;
   }
 })
