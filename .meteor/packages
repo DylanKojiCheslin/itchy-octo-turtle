@@ -24,3 +24,4 @@ aldeed:collection2
 aldeed:autoform
 check
 aldeed:simple-schema
+iron:router
