@@ -2,4 +2,9 @@
   <div id="addStudent">
     {{> addStudent}}
   </div>
+  <div id="allStudents">
+    {{#each ofTheStudents}}
+      {{> studentStub}}
+    {{/each}}
+  </div>
 </template>

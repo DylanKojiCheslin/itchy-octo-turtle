@@ -1,8 +1,10 @@
-<head>
-  <title>Many School</title>
-</head>
+<template name="layout">
+  <head>
+    <title>Many School</title>
+  </head>
 
-<body>
-  <h1>Many School</h1>
-  {{> home}}
-</body>
+  <body>
+    <h1>Many School</h1>
+    {{> yield}}
+  </body>
+</template>

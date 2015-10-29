@@ -2,4 +2,9 @@
   <div id="addClasses">
     {{> addClass}}
   </div>
+  <div id="allClasses">
+    {{#each ofTheClasses}}
+      {{> classStub}}
+    {{/each}}
+  </div>
 </template>

@@ -9,3 +9,21 @@ Students.appendSchema({
       max: 20
   }
 });
+
+Meteor.students.allow({
+  insert: function(){
+        return true;
+    },
+    update: function(){
+        return true;
+    },
+    remove: function() {
+        return true;
+    }
+});
+
+Students.methods({
+  "fullName": function(){
+    return this.firstName + " " + this.lastName;
+  }
+})
