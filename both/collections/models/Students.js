@@ -1,5 +1,5 @@
 Students = LinkableModel.extendAndSetupCollection("students");
-Students.appendSchema(LinkableModel.LinkableSchema);
+StudentsCollection = Students.collection;
 Students.appendSchema({
   "firstName":{
       type: String,
