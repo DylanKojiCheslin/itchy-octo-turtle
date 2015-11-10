@@ -4,13 +4,33 @@ LinkableModel.prototype.registerLinkableType = function (model, type) {
     LinkableTypes[type] = model.prototype._collection;
 };
 
-
 LinkSchema = {
   "links" : {
 	  type : Object,
 	  optional : true,
   }
 };
+
+addLinkSchema = function() {
+  var addSchema = function(model) {
+    model.appendSchema({
+      "links" : {
+        type : Object,
+        optional : true,
+      }
+    });
+  };
+
+  var calledCollections = [];
+  return function(model) {
+      if(!_.contains(calledCollections, model.collection._name)) {
+        addSchema(model);
+        calledCollections.push(model.collection._name);
+      } else {
+        console.log("Already called");
+      }
+  }
+}();
 
 addMethodToModel = function(model, prefix, type, func) {
 	var methodName = prefix + type;
@@ -19,10 +39,9 @@ addMethodToModel = function(model, prefix, type, func) {
 	model.methods(methods);
 }
 
-
-
 configureLinkableType = function(collection, model, type) {
-	var schemaString = "links." + type;
+  addLinkSchema(collection);
+  var schemaString = "links." + type;
     var schemaObject = {};
     schemaObject[schemaString] = {
 	    type : [String],
@@ -38,11 +57,10 @@ configureLinkableType = function(collection, model, type) {
 	});
   //get
 	addMethodToModel(collection, 'getLinked', upperCaseString, function(){
-		return LinkableModel.getCollectionForRegisteredType(type).find({_id : {$in : this.links[type]}}).forEach(function(object){
-			console.log(object);
-		});
+		return LinkableModel.getCollectionForRegisteredType(type).find({
+      _id : {$in : this.links[type]}}).fetch();
 	});
-  //reomove
+  //remove
   addMethodToModel(collection, 'remove', upperCaseString, function(linkID){
     var query = {};
 		query[schemaString] = [linkID];
