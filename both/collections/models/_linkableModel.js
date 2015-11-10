@@ -37,9 +37,15 @@ configureLinkableType = function(collection, model, type) {
 		this.update({$addToSet : query});
 	});
   //get
-	addMethodToModel(collection, 'getLinked', upperCaseString, function(linkID){
+	addMethodToModel(collection, 'getLinked', upperCaseString, function(){
 		return LinkableModel.getCollectionForRegisteredType(type).find({_id : {$in : this.links[type]}}).forEach(function(object){
 			console.log(object);
 		});
+	});
+  //reomove
+  addMethodToModel(collection, 'remove', upperCaseString, function(linkID){
+    var query = {};
+		query[schemaString] = [linkID];
+		this.update({$pullAll : query});
 	});
 }
