@@ -16,13 +16,13 @@ Classes.appendSchema({
   },
 });
 
-// Classes.methods({
-// 	"className": function(){
-// 		return this.title;
-// 	},
-// 	"classSlug": function(){
-// 		return this._id;
-// 	},
+Classes.methods({
+	"className": function(){
+		return this.title;
+	},
+	"classSlug": function(){
+		return this._id;
+	},
   // 'getStudentClass' : function(error, result) {
   //   var studentsClass = Meteor.wrapAsync(StudentsCollection.findOne());
   //   if (error) {
@@ -32,13 +32,13 @@ Classes.appendSchema({
   //     return studentsClass;
   //   }
   // }
-// });
+});
 
 
 // if(Meteor.isServer){
 // var aClass = Meteor.wrapAsyc(getStudentClass);
 
-// }
+//}
 
 
 
