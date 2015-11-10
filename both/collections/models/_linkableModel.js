@@ -4,13 +4,6 @@ LinkableModel.prototype.registerLinkableType = function (model, type) {
     LinkableTypes[type] = model.prototype._collection;
 };
 
-LinkSchema = {
-  "links" : {
-	  type : Object,
-	  optional : true,
-  }
-};
-
 addLinkSchema = function() {
   var addSchema = function(model) {
     model.appendSchema({
