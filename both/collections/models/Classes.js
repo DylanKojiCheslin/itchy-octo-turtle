@@ -17,5 +17,4 @@ Classes.methods({
 	"classSlug": function(){
 		return this._id;
 	},
-  // create a function to return linked students as list to view
 });
