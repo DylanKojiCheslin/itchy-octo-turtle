@@ -1,3 +1,11 @@
 <template name="class">
   this is the page for {{className}}
+
+  the students {{#each listStudents}}
+  <li>
+    {{this}}
+  </li>
+  {{/each}}
+
+
 </template>
