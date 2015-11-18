@@ -8,3 +8,6 @@ This project is an attempt to model the relations of data to simulate a school.
 A student can be in many classes.
 
 A class can have many students.
+
+attempting to make a meteor package of the functions.
+https://github.com/DylanKojiCheslin/ManyToManyModels
