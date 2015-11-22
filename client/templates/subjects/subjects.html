@@ -1,0 +1,10 @@
+<template name="subjects">
+  <div id="addSubject">
+    {{> addSubject}}
+  </div>
+  <div id="allSubjects">
+    {{#each ofTheSubjects}}
+      {{> subjectStub}}
+    {{/each}}
+  </div>
+</template>

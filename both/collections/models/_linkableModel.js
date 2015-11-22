@@ -39,6 +39,7 @@ configureLinkableType = function(collection, model, type) {
     schemaObject[schemaString] = {
 	    type : [String],
       regEx:SimpleSchema.RegEx.Id,
+      autoform: {omit: true}
     };
     collection.appendSchema(schemaObject);
 	var upperCaseString = type.charAt(0).toUpperCase() + type.slice(1);
@@ -60,3 +61,9 @@ configureLinkableType = function(collection, model, type) {
 		this.update({$pullAll : query});
 	});
 }
+// bindLinkableModels = function (thisModelString, otherModel, otherType) {
+// registerLinkableType(otherModel, otherType);
+// configureLinkableType(Classes, otherModel, otherType);
+// // Classes.registerLinkableType(Classes, "classes");
+// // configureLinkableType(Students, Classes, "classes");
+// };
