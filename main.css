@@ -1,1 +1,8 @@
 /* CSS declarations go here */
+.form-control{
+  width: 20em;
+}
+.bordered {
+  border: 2px solid #ccc;
+  width: 20em;
+}
