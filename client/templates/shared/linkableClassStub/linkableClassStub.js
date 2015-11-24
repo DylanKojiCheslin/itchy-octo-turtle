@@ -1,11 +1,26 @@
 Template.linkableClassStub.events({
   "click .classLinkBtn": function(e){
      e.preventDefault();
-     //set Session.objToLink to this._Id
      //set Session.objToLinkType to "class"
+     Session.set("objToLinkType", "class");
+     //set Session.objToLink to this._Id
+     Session.set("objToLink", this._id);
+
   },
   "click .addStudentsToClass": function(e){
     e.preventDefault();
-    //link this to Session.objectTolink if its a student
+    //if its a student
+    if (Session.get('objToLinkType') == "student") {
+      //link this to Session.objToLink
+      this.addStudent(Session.get("objToLink"));
+    }
   }
+});
+
+Template.linkableClassStub.helpers({
+  linkableObjectExistsAndIsStudent: function(){
+    return(
+     Session.get('objToLinkType') == "student"
+    )
+  },
 });
