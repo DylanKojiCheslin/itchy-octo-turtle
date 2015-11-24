@@ -25,3 +25,4 @@ aldeed:autoform
 check
 aldeed:simple-schema
 iron:router
+twbs:bootstrap
