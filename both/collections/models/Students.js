@@ -29,5 +29,21 @@ Students.methods({
   },
   "studentSlug": function(){
     return this._id
+  },
+  "listClasses": function(){
+    var classesIdsArray = [];
+    var seachSelector = {};
+    var classesCurssor = {};
+    var classesArray = [];
+    var getClassName = function(element){
+      return element.className()
+    };
+    classesIdsArray = this.links.classes;
+    if (classesIdsArray) {
+    seachSelector._id = { $in: classesIdsArray};
+    classesCurssor = ClassesCollection.find(seachSelector);
+    classesArray = classesCurssor.map(getClassName);
+    return classesArray;
+    }
   }
 })
