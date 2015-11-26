@@ -11,8 +11,7 @@ Template.linkableStudentStub.events({
   "click .addClassForStudent": function(e){
     e.preventDefault();
     // if its a class
-    if (Session.get("objToLinkType") == "class"
-    ) {
+    if (Session.get("objToLinkType") == "class") {
       //link this to Session.objToLinkType
       this.addClasses(Session.get("objToLink"));
     }
