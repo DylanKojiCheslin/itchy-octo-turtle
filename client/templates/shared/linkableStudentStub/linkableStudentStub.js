@@ -5,6 +5,8 @@ Template.linkableStudentStub.events({
      Session.set("objToLinkType", "student");
      //set Session.objToLink to this._Id
      Session.set("objToLink", this._id);
+     $(".being-linked").removeClass("being-linked")
+     $(e.currentTarget).parent().addClass("being-linked");
   },
   "click .addClassForStudent": function(e){
     e.preventDefault();
