@@ -5,7 +5,8 @@ SubjectsCollection = Subjects.collection;
 Subjects.appendSchema({
   "name":{
       type: String,
-      max: 20
+      max: 20,
+      label: "Subject"
    }
 });
 
