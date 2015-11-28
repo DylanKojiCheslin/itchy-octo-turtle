@@ -20,6 +20,27 @@ Meteor.startup(function(){
        "time":"forth"
       },
     );
-
+    if (! StudentsCollection.findOne()) {
+      StudentsCollection.insert(
+        {"firstName":"john",
+         "lastName":"smith"
+        },
+      );
+      StudentsCollection.insert(
+        {"firstName":"bob",
+         "lastName":"knowsthings"
+        },
+      );
+      StudentsCollection.insert(
+        {"firstName":"katie",
+         "lastName":"simpson"
+        },
+      );
+      StudentsCollection.insert(
+        {"firstName":"dude",
+         "lastName":"manguy"
+        },
+      );
+    }
   }
 });
