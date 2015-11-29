@@ -43,4 +43,33 @@ Meteor.startup(function(){
       },
     );
   }
+  if (! SubjectsCollection.findOne()) {
+    SubjectsCollection.insert(
+      {"name":"Agriculture"}
+    );
+    SubjectsCollection.insert(
+      {"name":"Astronomy"}
+    );
+    SubjectsCollection.insert(
+      {"name":"Banking"}
+    );
+    SubjectsCollection.insert(
+      {"name":"Copyright"}
+    );
+    SubjectsCollection.insert(
+      {"name":"Databases"}
+    );
+    SubjectsCollection.insert(
+      {"name":"Economics"}
+    );
+    SubjectsCollection.insert(
+      {"name":"Science"}
+    );
+    SubjectsCollection.insert(
+      {"name":"Technology"}
+    );
+    SubjectsCollection.insert(
+      {"name":"Trade"}
+    );
+  }
 });
