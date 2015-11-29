@@ -13,7 +13,7 @@ Template.linkableClassStub.events({
     //if its a student
     if (Session.get('objToLinkType') == "student") {
       //link this to Session.objToLink
-      this.addStudent(Session.get("objToLink"));
+      this.addStudents(Session.get("objToLink"));
     }
   }
 });

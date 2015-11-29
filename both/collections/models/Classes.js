@@ -21,17 +21,19 @@ Classes.methods({
 		return this._id;
 	},
   "listStudents": function(){
-    var studentsIdsArray = [];
-    var seachSelector = {};
-    var studentsCurssor = {};
-    var studentsArray = [];
-    var getStudentsFullName = function(element){
-      return element.fullName()
-    };
-    studentsIdsArray = this.links.student;
-    seachSelector._id = { $in: studentsIdsArray};
-    studentsCurssor = StudentsCollection.find(seachSelector);
-    studentsArray = studentsCurssor.map(getStudentsFullName);
-    return studentsArray;
+    if (! (typeof this.links == 'undefined')) {
+      var studentsIdsArray = [];
+      var seachSelector = {};
+      var studentsCurssor = {};
+      var studentsArray = [];
+      var getStudentsFullName = function(element){
+        return element.fullName()
+      };
+      studentsIdsArray = this.links.students;
+      seachSelector._id = { $in: studentsIdsArray};
+      studentsCurssor = StudentsCollection.find(seachSelector);
+      studentsArray = studentsCurssor.map(getStudentsFullName);
+      return studentsArray;
+    }
   }
 });
