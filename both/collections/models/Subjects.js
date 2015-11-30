@@ -16,5 +16,10 @@ Subjects.methods({
 	},
 	"subjectSlug": function(){
 		return this._id;
+  },
+  "relatedSubjects": function(){
+    if (! (typeof this.links == 'undefined')) {
+      console.log("finish relatedSubjects function");
+    }
   }
 });
