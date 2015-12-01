@@ -19,7 +19,14 @@ Subjects.methods({
   },
   "relatedSubjects": function(){
     if (! (typeof this.links == 'undefined')) {
-      console.log("finish relatedSubjects function");
+      var subjectsCurssor = {};
+      var subjectsArray = [];
+      var getSubjectName = function(element){
+        return element.name
+      };
+      subjectsCurssor = this.getLinkedSubjects();
+      subjectsArray = subjectsCurssor.map(getClassName);
+      return subjectsArray;
     }
   }
 });

@@ -22,16 +22,12 @@ Classes.methods({
 	},
   "listStudents": function(){
     if (! (typeof this.links == 'undefined')) {
-      var studentsIdsArray = [];
-      var seachSelector = {};
       var studentsCurssor = {};
       var studentsArray = [];
       var getStudentsFullName = function(element){
         return element.fullName()
       };
-      studentsIdsArray = this.links.students;
-      seachSelector._id = { $in: studentsIdsArray};
-      studentsCurssor = StudentsCollection.find(seachSelector);
+      studentsCurssor = this.getLinkedStudents();
       studentsArray = studentsCurssor.map(getStudentsFullName);
       return studentsArray;
     }
