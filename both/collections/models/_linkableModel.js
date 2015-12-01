@@ -32,6 +32,13 @@ addMethodToModel = function(model, prefix, type, func) {
 	model.methods(methods);
 }
 
+addLinkToModel = function(model, linkID, schemaString) {
+    var query = {};
+    query[schemaString] = linkID;
+    console.log(query);
+    model.update({$addToSet : query});
+}
+
 configureLinkableType = function(collection, model, type) {
   addLinkSchema(collection);
   var schemaString = "links." + type;
@@ -45,10 +52,18 @@ configureLinkableType = function(collection, model, type) {
 	var upperCaseString = type.charAt(0).toUpperCase() + type.slice(1);
   //add
 	addMethodToModel(collection, 'add', upperCaseString, function(linkID){
-		var query = {};
-		query[schemaString] = linkID;
-		this.update({$addToSet : query});
-	});
+	   addLinkToModel(this, linkID, schemaString);
+  });
+
+  addMethodToModel(collection, 'link', upperCaseString, function(linkID){
+    addLinkToModel(this, linkID, schemaString);
+    var that = this;
+    model.collection.find(linkID).forEach(function(linkedModel){
+      var linkedSchemaString = 'links.' +  that._objectType;
+      addLinkToModel(linkedModel, that._id, linkedSchemaString);
+    });
+  });
+
   //get
 	addMethodToModel(collection, 'getLinked', upperCaseString, function(){
 		return LinkableModel.getCollectionForRegisteredType(type).find({
