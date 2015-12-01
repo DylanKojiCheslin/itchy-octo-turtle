@@ -76,9 +76,3 @@ configureLinkableType = function(collection, model, type) {
 		this.update({$pullAll : query});
 	});
 }
-// bindLinkableModels = function (thisModelString, otherModel, otherType) {
-// registerLinkableType(otherModel, otherType);
-// configureLinkableType(Classes, otherModel, otherType);
-// // Classes.registerLinkableType(Classes, "classes");
-// // configureLinkableType(Students, Classes, "classes");
-// };
